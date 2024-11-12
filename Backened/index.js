@@ -8,7 +8,6 @@ const { app, server } = require('./socket/index.js');
 
 // Use environment variable for Mongo URI
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://mohitkeshari2000:mohit123@chat-app.l5erv.mongodb.net/?retryWrites=true&w=majority&appName=Chat-App');
 
 // Use environment variable for PORT
 const PORT = process.env.PORT || 8080;
@@ -18,6 +17,9 @@ app.use(cors({
     methods: ["POST", "GET"],
     credentials: true
 }));
+
+mongoose.connect('mongodb+srv://mohitkeshari2000:mohit123@chat-app.l5erv.mongodb.net/?retryWrites=true&w=majority&appName=Chat-App');
+
 
 app.use(express.json());
 app.use(cookieParser());
