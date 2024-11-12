@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/UserModel");
 
+// Directly specifying the JWT Secret key in the code (NOT RECOMMENDED for production)
+const JWT_SECRET_KEY = 'DHFJKYFUWFLDLHFWFHWBWGFYFWUDJKAHDGYHSKSHDUGDYB'; // Replace with your actual secret key
+
 const getUserDetailsFromToken = async (token) => {
     try {
         // Check if token is provided
@@ -11,8 +14,8 @@ const getUserDetailsFromToken = async (token) => {
             };
         }
 
-        // Verify the token and decode the payload
-        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        // Verify the token and decode the payload using the directly specified secret key
+        const decoded = jwt.verify(token, JWT_SECRET_KEY);
 
         // Find the user by the ID in the decoded payload, excluding the password
         const user = await UserModel.findById(decoded.id).select('-password');
