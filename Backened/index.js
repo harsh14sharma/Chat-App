@@ -9,12 +9,13 @@ const{app,server} = require('./socket/index.js');
 
 //  const app = express();
 app.use(cors({
-    origin:process.env.FRONTENED_URL,
+    origin:["https://deploy-chatApp-1whq.vercel.app"],
+    methods:["POST","GET"],
     credentials:true
 }));
 
 /**    socket is running at http://localhost:8080/        */
-
+mongoose.connect('mongodb+srv://mohitkeshari2000:AKAN_KESH@chat-app.l5erv.mongodb.net/?retryWrites=true&w=majority&appName=Chat-App');
 
 app.use(express.json());
 app.use(cookieParser());
