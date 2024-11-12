@@ -13,7 +13,7 @@ const getUserDetailsFromToken = async (token) => {
         }
 
         // Verify the token and decode the payload
-        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        const decoded = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
 
         // Find the user by the ID in the decoded payload, excluding the password
         const user = await UserModel.findById(decoded.id).select('-password');
