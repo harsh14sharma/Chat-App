@@ -8,7 +8,7 @@ const { app, server } = require('./socket/index.js');
 
 // Use environment variable for Mongo URI
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URL);
 
 // Use environment variable for PORT
 const PORT = process.env.PORT || 8080;
