@@ -24,7 +24,7 @@ mongoose.connect('mongodb+srv://mohitkeshari2000:mohit123@chat-app.l5erv.mongodb
 
 // Additional headers to handle preflight requests
 app.options('*', cors({
-    origin: "https://chat-app-front-phi.vercel.app",
+    origin: "https://chat-app-front-kappa.vercel.app",
     credentials: true
 }));
 
