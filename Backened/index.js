@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://mohitkeshari2000:mohit123@chat-app.l5erv.mongodb
 const PORT = process.env.PORT || 8080;
 
 app.use(cors({
-    origin: ["https://deploy-chatApp-1whq.vercel.app"],
+    origin: [""],
     methods: ["POST", "GET"],
     credentials: true
 }));
