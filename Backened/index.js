@@ -20,7 +20,7 @@ mongoose.connect('mongodb+srv://mohitkeshari2000:AKAN_KESH@chat-app.l5erv.mongod
 app.use(express.json());
 app.use(cookieParser());
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.get("/", (req,res)=>{
     res.send("Hello World");
