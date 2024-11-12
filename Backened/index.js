@@ -13,13 +13,20 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 8080;
 
 app.use(cors({
-    origin: ["https://chat-app-front-phi.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
+    origin: ["https://chat-app-front-kappa.vercel.app"],
+    methods: ["POST", "GET", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
+    credentials: true,
+    optionsSuccessStatus: 200
 }));
 
 mongoose.connect('mongodb+srv://mohitkeshari2000:mohit123@chat-app.l5erv.mongodb.net/?retryWrites=true&w=majority&appName=Chat-App');
 
+// Additional headers to handle preflight requests
+app.options('*', cors({
+    origin: "https://chat-app-front-phi.vercel.app",
+    credentials: true
+}));
 
 app.use(express.json());
 app.use(cookieParser());
